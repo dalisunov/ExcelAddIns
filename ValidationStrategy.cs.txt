@@ -1,0 +1,87 @@
+public class ModuleNameValidationStrategy : INameValidationStrategy
+{
+    public (bool isValid, string errorMessage) ValidateName(string name)
+    {
+        return NamingValidationService.ValidateModuleName(name);
+    }
+}
+
+public class SheetObjectValidationStrategy : INameValidationStrategy
+{
+    public (bool isValid, string errorMessage) ValidateName(string name)
+    {
+        return NamingValidationService.ValidateSheetObjectName(name);
+    }
+}
+
+public class WorksheetValidationStrategy : INameValidationStrategy
+{
+    public (bool isValid, string errorMessage) ValidateName(string name)
+    {
+        return NamingValidationService.ValidateWorksheetName(name);
+    }
+}
+
+public class TableColumnValidationStrategy : INameValidationStrategy
+{
+    public (bool isValid, string errorMessage) ValidateName(string name)
+    {
+        return NamingValidationService.ValidateTableColumnName(name);
+    }
+}
+
+public class PivotColumnValidationStrategy : INameValidationStrategy
+{
+    public (bool isValid, string errorMessage) ValidateName(string name)
+    {
+        return NamingValidationService.ValidatePivotColumnName(name);
+    }
+}
+
+public class NamedRangeValidationStrategy : INameValidationStrategy
+{
+    public (bool isValid, string errorMessage) ValidateName(string name)
+    {
+        return NamingValidationService.ValidateNamedRangeName(name);
+    }
+}
+
+public class MacroValidationStrategy : INameValidationStrategy
+{
+    public (bool isValid, string errorMessage) ValidateName(string name)
+    {
+        return NamingValidationService.ValidateMacroName(name);
+    }
+}
+
+public class StyleValidationStrategy : INameValidationStrategy
+{
+    public (bool isValid, string errorMessage) ValidateName(string name)
+    {
+        return NamingValidationService.ValidateStyleName(name);
+    }
+}
+
+public class ConditionalFormatValidationStrategy : INameValidationStrategy
+{
+    public (bool isValid, string errorMessage) ValidateName(string name)
+    {
+        return NamingValidationService.ValidateConditionalFormatName(name);
+    }
+}
+
+public class DataConnectionValidationStrategy : INameValidationStrategy
+{
+    public (bool isValid, string errorMessage) ValidateName(string name)
+    {
+        return NamingValidationService.ValidateDataConnectionName(name);
+    }
+}
+
+public class VBAFunctionValidationStrategy : INameValidationStrategy
+{
+    public (bool isValid, string errorMessage) ValidateName(string name)
+    {
+        return NamingValidationService.ValidateVBAFunctionName(name);
+    }
+}

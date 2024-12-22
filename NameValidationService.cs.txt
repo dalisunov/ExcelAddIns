@@ -1,0 +1,105 @@
+using System.Text.RegularExpressions;
+
+public static class NamingValidationService
+{
+    public static (bool isValid, string errorMessage) ValidateName(string name, string pattern, int maxLength, string description)
+    {
+        // Проверка на null или пустую строку
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            return (false, "Имя не может быть пустым");
+        }
+
+        // Проверка длины
+        if (name.Length > maxLength)
+        {
+            return (false, $"Длина имени превышает допустимую ({maxLength} символов)");
+        }
+
+        // Проверка паттерна
+        if (!Regex.IsMatch(name, pattern))
+        {
+            return (false, $"Некорректное имя. {description}");
+        }
+
+        return (true, string.Empty);
+    }
+
+    // Специализированные методы для каждого типа объекта
+    public static (bool isValid, string errorMessage) ValidateModuleName(string name)
+    {
+        return ValidateName(name, GlobalConstClass.MODULE_PATTERN,
+                          GlobalConstClass.MODULE_MAX_LENGTH,
+                          GlobalConstClass.MODULE_DESCRIPTION);
+    }
+
+    public static (bool isValid, string errorMessage) ValidateSheetObjectName(string name)
+    {
+        return ValidateName(name, GlobalConstClass.SHEET_OBJECT_PATTERN,
+                          GlobalConstClass.SHEET_OBJECT_MAX_LENGTH,
+                          GlobalConstClass.SHEET_OBJECT_DESCRIPTION);
+    }
+
+    public static (bool isValid, string errorMessage) ValidateWorksheetName(string name)
+    {
+        return ValidateName(name, GlobalConstClass.WORKSHEET_PATTERN,
+                          GlobalConstClass.WORKSHEET_MAX_LENGTH,
+                          GlobalConstClass.WORKSHEET_DESCRIPTION);
+    }
+
+    public static (bool isValid, string errorMessage) ValidateTableColumnName(string name)
+    {
+        return ValidateName(name, GlobalConstClass.TABLE_COLUMN_PATTERN,
+                          GlobalConstClass.TABLE_COLUMN_MAX_LENGTH,
+                          GlobalConstClass.TABLE_COLUMN_DESCRIPTION);
+    }
+
+    public static (bool isValid, string errorMessage) ValidatePivotColumnName(string name)
+    {
+        return ValidateName(name, GlobalConstClass.PIVOT_COLUMN_PATTERN,
+                          GlobalConstClass.PIVOT_COLUMN_MAX_LENGTH,
+                          GlobalConstClass.PIVOT_COLUMN_DESCRIPTION);
+    }
+
+    public static (bool isValid, string errorMessage) ValidateNamedRangeName(string name)
+    {
+        return ValidateName(name, GlobalConstClass.NAMED_RANGE_PATTERN,
+                          GlobalConstClass.NAMED_RANGE_MAX_LENGTH,
+                          GlobalConstClass.NAMED_RANGE_DESCRIPTION);
+    }
+
+    public static (bool isValid, string errorMessage) ValidateMacroName(string name)
+    {
+        return ValidateName(name, GlobalConstClass.MACRO_PATTERN,
+                          GlobalConstClass.MACRO_MAX_LENGTH,
+                          GlobalConstClass.MACRO_DESCRIPTION);
+    }
+
+    public static (bool isValid, string errorMessage) ValidateStyleName(string name)
+    {
+        return ValidateName(name, GlobalConstClass.STYLE_PATTERN,
+                          GlobalConstClass.STYLE_MAX_LENGTH,
+                          GlobalConstClass.STYLE_DESCRIPTION);
+    }
+
+    public static (bool isValid, string errorMessage) ValidateConditionalFormatName(string name)
+    {
+        return ValidateName(name, GlobalConstClass.CONDITIONAL_FORMAT_PATTERN,
+                          GlobalConstClass.CONDITIONAL_FORMAT_MAX_LENGTH,
+                          GlobalConstClass.CONDITIONAL_FORMAT_DESCRIPTION);
+    }
+
+    public static (bool isValid, string errorMessage) ValidateDataConnectionName(string name)
+    {
+        return ValidateName(name, GlobalConstClass.DATA_CONNECTION_PATTERN,
+                          GlobalConstClass.DATA_CONNECTION_MAX_LENGTH,
+                          GlobalConstClass.DATA_CONNECTION_DESCRIPTION);
+    }
+
+    public static (bool isValid, string errorMessage) ValidateVBAFunctionName(string name)
+    {
+        return ValidateName(name, GlobalConstClass.VBA_FUNCTION_PATTERN,
+                          GlobalConstClass.VBA_FUNCTION_MAX_LENGTH,
+                          GlobalConstClass.VBA_FUNCTION_DESCRIPTION);
+    }
+}

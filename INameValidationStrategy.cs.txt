@@ -1,0 +1,4 @@
+public interface INameValidationStrategy
+{
+    (bool isValid, string errorMessage) ValidateName(string name);
+}

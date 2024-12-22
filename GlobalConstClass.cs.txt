@@ -1,0 +1,57 @@
+public static class GlobalConstClass
+{
+    // Требования для программных модулей (Modules, UserForms, Class Modules, Controls)
+    public const string MODULE_PATTERN = @"^[a-zA-Z][a-zA-Z0-9_]*$";
+    public const int MODULE_MAX_LENGTH = 31;
+    public const string MODULE_DESCRIPTION = "Должно начинаться с буквы, содержать только буквы, цифры и знак подчеркивания. Максимальная длина 31 символ.";
+
+    // Требования для объектов на листе (ListObjects, Shapes, OLEObjects, Charts)
+    public const string SHEET_OBJECT_PATTERN = @"^[a-zA-Z][a-zA-Z0-9_\s]*$";
+    public const int SHEET_OBJECT_MAX_LENGTH = 255;
+    public const string SHEET_OBJECT_DESCRIPTION = "Должно начинаться с буквы, может содержать буквы, цифры, пробелы и знак подчеркивания. Максимальная длина 255 символов.";
+
+    // Требования для имен листов
+    public const string WORKSHEET_PATTERN = @"^[a-zA-Z0-9_\s\-\(\)\[\]\{\}]*$";
+    public const int WORKSHEET_MAX_LENGTH = 31;
+    public const string WORKSHEET_FORBIDDEN_CHARS = @"\/\*\?:[]";
+    public const string WORKSHEET_DESCRIPTION = "Не может содержать символы: /\\*?:[] Максимальная длина 31 символ.";
+
+    // Требования для столбцов обычных таблиц
+    public const string TABLE_COLUMN_PATTERN = @"^[a-zA-Z0-9_\s\-\.]*$";
+    public const int TABLE_COLUMN_MAX_LENGTH = 255;
+    public const string TABLE_COLUMN_DESCRIPTION = "Может содержать буквы, цифры, пробелы, точки, дефисы и знак подчеркивания. Максимальная длина 255 символов.";
+
+    // Требования для столбцов сводных таблиц
+    public const string PIVOT_COLUMN_PATTERN = @"^[a-zA-Z0-9_\s\-\.]*$";
+    public const int PIVOT_COLUMN_MAX_LENGTH = 255;
+    public const string PIVOT_COLUMN_DESCRIPTION = "Может содержать буквы, цифры, пробелы, точки, дефисы и знак подчеркивания. Максимальная длина 255 символов. Должно быть уникальным в пределах сводной таблицы.";
+    // Требования для именованных диапазонов (Named Ranges)
+    public const string NAMED_RANGE_PATTERN = @"^[a-zA-Z][a-zA-Z0-9_\.]*$";
+    public const int NAMED_RANGE_MAX_LENGTH = 255;
+    public const string NAMED_RANGE_DESCRIPTION = "Должно начинаться с буквы, может содержать буквы, цифры, точки и знак подчеркивания. Максимальная длина 255 символов.";
+
+    // Требования для имен макросов
+    public const string MACRO_PATTERN = @"^[a-zA-Z][a-zA-Z0-9_]*$";
+    public const int MACRO_MAX_LENGTH = 255;
+    public const string MACRO_DESCRIPTION = "Должно начинаться с буквы, содержать только буквы, цифры и знак подчеркивания. Максимальная длина 255 символов.";
+
+    // Требования для имен стилей
+    public const string STYLE_PATTERN = @"^[a-zA-Z0-9_\s\-]*$";
+    public const int STYLE_MAX_LENGTH = 255;
+    public const string STYLE_DESCRIPTION = "Может содержать буквы, цифры, пробелы, дефисы и знак подчеркивания. Максимальная длина 255 символов.";
+
+    // Требования для имен условного форматирования
+    public const string CONDITIONAL_FORMAT_PATTERN = @"^[a-zA-Z0-9_\s\-]*$";
+    public const int CONDITIONAL_FORMAT_MAX_LENGTH = 255;
+    public const string CONDITIONAL_FORMAT_DESCRIPTION = "Может содержать буквы, цифры, пробелы, дефисы и знак подчеркивания. Максимальная длина 255 символов.";
+
+    // Требования для имен подключений к данным
+    public const string DATA_CONNECTION_PATTERN = @"^[a-zA-Z0-9_\s\-\.]*$";
+    public const int DATA_CONNECTION_MAX_LENGTH = 255;
+    public const string DATA_CONNECTION_DESCRIPTION = "Может содержать буквы, цифры, пробелы, точки, дефисы и знак подчеркивания. Максимальная длина 255 символов.";
+
+    // Требования для имен функций VBA
+    public const string VBA_FUNCTION_PATTERN = @"^[a-zA-Z][a-zA-Z0-9_]*$";
+    public const int VBA_FUNCTION_MAX_LENGTH = 255;
+    public const string VBA_FUNCTION_DESCRIPTION = "Должно начинаться с буквы, содержать только буквы, цифры и знак подчеркивания. Максимальная длина 255 символов.";
+}

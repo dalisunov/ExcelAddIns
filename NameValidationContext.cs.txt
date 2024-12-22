@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+
+public class NameValidationContext
+{
+    private readonly Dictionary<ExcelObjectType, INameValidationStrategy> _strategies;
+
+    public NameValidationContext()
+    {
+        _strategies = new Dictionary<ExcelObjectType, INameValidationStrategy>
+        {
+            { ExcelObjectType.Module, new ModuleNameValidationStrategy() },
+            { ExcelObjectType.SheetObject, new SheetObjectValidationStrategy() },
+            { ExcelObjectType.Worksheet, new WorksheetValidationStrategy() },
+            { ExcelObjectType.TableColumn, new TableColumnValidationStrategy() },
+            { ExcelObjectType.PivotColumn, new PivotColumnValidationStrategy() },
+            { ExcelObjectType.NamedRange, new NamedRangeValidationStrategy() },
+            { ExcelObjectType.Macro, new MacroValidationStrategy() },
+            { ExcelObjectType.Style, new StyleValidationStrategy() },
+            { ExcelObjectType.ConditionalFormat, new ConditionalFormatValidationStrategy() },
+            { ExcelObjectType.DataConnection, new DataConnectionValidationStrategy() },
+            { ExcelObjectType.VBAFunction, new VBAFunctionValidationStrategy() }
+        };
+    }
+
+    public (bool isValid, string errorMessage) ValidateName(string name, ExcelObjectType objectType)
+    {
+        if (_strategies.TryGetValue(objectType, out var strategy))
+        {
+            return strategy.ValidateName(name);
+        }
+
+        return (false, "Неизвестный тип объекта Excel");
+    }
+}

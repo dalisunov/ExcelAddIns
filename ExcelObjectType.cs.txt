@@ -1,0 +1,14 @@
+public enum ExcelObjectType
+{
+    Module,
+    SheetObject,
+    Worksheet,
+    TableColumn,
+    PivotColumn,
+    NamedRange,
+    Macro,
+    Style,
+    ConditionalFormat,
+    DataConnection,
+    VBAFunction
+}
